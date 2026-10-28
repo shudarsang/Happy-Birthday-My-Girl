@@ -1,0 +1,375 @@
+@import "tailwindcss";
+
+/* ───────────── Design tokens ───────────── */
+
+@theme {
+  --color-petal: #ffb6d5;
+  --color-petal-deep: #ff8fb8;
+  --color-blush: #ffe3ee;
+  --color-shell: #fff5f8;
+  --color-cream: #fffdf8;
+  --color-lilac: #e9ddfb;
+  --color-berry: #e94f87;
+  --color-plum: #481a35;
+  --color-plum-soft: #6e3a57;
+
+  --shadow-soft: 0 10px 28px -12px rgb(233 79 135 / 0.35);
+  --shadow-card: 0 22px 50px -24px rgb(233 79 135 / 0.5), 0 2px 6px rgb(72 26 53 / 0.05);
+  --shadow-polaroid: 0 14px 28px -16px rgb(72 26 53 / 0.38), 0 2px 5px rgb(72 26 53 / 0.08);
+  --shadow-polaroid-lg: 0 26px 46px -18px rgb(233 79 135 / 0.55), 0 4px 10px rgb(72 26 53 / 0.1);
+}
+
+@theme inline {
+  --font-script: var(--font-caveat-brush), "Caveat Brush", "Segoe Print", cursive;
+  --font-letter: var(--font-caveat), "Caveat", "Segoe Print", cursive;
+  --font-hand: var(--font-mali), "Mali", "Comic Sans MS", ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-nunito), ui-rounded, "Segoe UI", system-ui, sans-serif;
+}
+
+/* ───────────── Base ───────────── */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-shell);
+    color: var(--color-plum);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background: var(--color-petal);
+    color: var(--color-plum);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-berry);
+    outline-offset: 3px;
+  }
+}
+
+/* ───────────── Surfaces ───────────── */
+
+@layer components {
+  .bg-hero {
+    background:
+      radial-gradient(60% 55% at 22% 40%, rgb(255 255 255 / 0.55), transparent 70%),
+      radial-gradient(40% 40% at 88% 30%, rgb(233 221 251 / 0.55), transparent 70%),
+      linear-gradient(180deg, #fee1eb 0%, #ffe6ef 55%, #ffeaf2 100%);
+  }
+
+  .illustration-mask {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 12%, #000 90%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 12%, #000 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 12%, #000 90%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 12%, #000 100%);
+    mask-composite: intersect;
+  }
+
+  .letter-paper {
+    background-color: var(--color-cream);
+    background-image:
+      linear-gradient(90deg, transparent 2.6rem, rgb(255 143 184 / 0.45) 2.6rem, rgb(255 143 184 / 0.45) calc(2.6rem + 2px), transparent calc(2.6rem + 2px)),
+      repeating-linear-gradient(to bottom, transparent 0 2.45rem, rgb(255 182 213 / 0.5) 2.45rem calc(2.45rem + 1px));
+    /* nudge the ruling up so the handwriting sits on the lines */
+    background-position: 0 0, 0 -0.45rem;
+  }
+
+  .washi {
+    background: repeating-linear-gradient(45deg, rgb(255 182 213 / 0.85) 0 6px, rgb(255 227 238 / 0.85) 6px 12px);
+  }
+
+  .dotted-line {
+    background-image: radial-gradient(circle, var(--color-petal-deep) 1.6px, transparent 2px);
+    background-size: 3px 14px;
+    background-repeat: repeat-y;
+    background-position: center top;
+  }
+}
+
+/* ───────────── Cats: idle life ───────────── */
+
+@layer components {
+  .cat-svg .cat-eyes {
+    animation: cat-blink var(--blink, 4.6s) var(--blink-delay, 0s) infinite;
+  }
+  .cat-svg .cat-tail {
+    animation: cat-tail-sway var(--tail, 2.8s) ease-in-out infinite;
+  }
+  .cat-svg .cat-tail-sleep {
+    animation: cat-tail-sleep 5s ease-in-out infinite;
+  }
+  .cat-svg .cat-ear-r {
+    animation: cat-ear-twitch 7s 2.5s ease-in-out infinite;
+  }
+  .cat-svg .cat-wave {
+    animation: cat-wave 3.6s ease-in-out infinite;
+  }
+  .cat-svg .cat-breathe {
+    animation: cat-breathe 3.4s ease-in-out infinite;
+  }
+  .cat-svg .cat-ribbon-tail {
+    animation: ribbon-flutter 0.45s ease-in-out infinite alternate;
+  }
+  .cat-svg .cat-held-heart {
+    transition: opacity 0.25s ease;
+  }
+  .cat-svg .cat-held-heart.is-dropped {
+    opacity: 0;
+  }
+
+  /* Pet me! (hover on devices that can hover; taps trigger the jump instead) */
+  @media (hover: hover) {
+    .cat-pet:hover .cat-eyes {
+      animation: cat-blink-quick 0.5s ease-in-out 2;
+    }
+    .cat-pet:hover .cat-ear-l {
+      animation: cat-ear-wiggle 0.45s ease-in-out 2;
+    }
+    .cat-pet:hover .cat-ear-r {
+      animation: cat-ear-wiggle 0.45s 0.1s ease-in-out 2 reverse;
+    }
+    .cat-pet:hover .cat-tail {
+      animation-duration: 0.8s;
+    }
+    .cat-pet:hover .cat-head {
+      animation: cat-head-tilt 0.9s ease-in-out;
+    }
+  }
+
+  /* Running / walking — only while the container says it's moving. */
+  [data-gait="walk"] {
+    --stride: 0.62s;
+    --swing: 20deg;
+  }
+  [data-moving="true"] .cat-leg-fn,
+  [data-moving="true"] .cat-leg-bf {
+    animation: cat-leg-a var(--stride, 0.32s) linear infinite;
+  }
+  [data-moving="true"] .cat-leg-ff,
+  [data-moving="true"] .cat-leg-bn {
+    animation: cat-leg-b var(--stride, 0.32s) linear infinite;
+  }
+  [data-moving="true"] .cat-run-bounce {
+    animation: cat-bounce calc(var(--stride, 0.32s) / 2) ease-in-out infinite alternate;
+  }
+  [data-moving="true"] .cat-tail {
+    animation-duration: 0.55s;
+  }
+  [data-dir="back"] .runner-flip {
+    transform: scaleX(-1);
+  }
+  .runner-flip {
+    transition: transform 0.18s ease;
+  }
+
+  /* Peeking from behind an edge. Resting state (no animation) = visible. */
+  .peek-loop {
+    transform: translateY(8%);
+    animation: cat-peek var(--peek-dur, 9s) var(--peek-delay, 0s) ease-in-out infinite;
+  }
+
+  /* Kitten chasing a heart around a little loop */
+  .chase-path {
+    position: absolute;
+    left: 0;
+    top: 0;
+    offset-path: path("M 22 42 C 22 8, 148 8, 148 42 C 148 74, 22 74, 22 42 Z");
+    offset-rotate: 0deg;
+    offset-anchor: center;
+    animation: chase-move 7s linear infinite;
+  }
+  .chase-flip {
+    animation: chase-flip 7s steps(1, end) infinite;
+  }
+
+  .stroll {
+    animation: stroll var(--stroll-dur, 26s) linear infinite;
+  }
+
+  .zzz span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    animation: zzz 3.6s ease-in-out infinite;
+  }
+  .zzz span:nth-child(2) {
+    animation-delay: 1.2s;
+    font-size: 1.15em;
+  }
+  .zzz span:nth-child(3) {
+    animation-delay: 2.4s;
+    font-size: 1.35em;
+  }
+}
+
+/* ───────────── Decorations ───────────── */
+
+@layer components {
+  .float-soft {
+    animation: float-soft var(--dur, 6s) var(--delay, 0s) ease-in-out infinite;
+  }
+  .twinkle {
+    animation: twinkle var(--dur, 2.8s) var(--delay, 0s) ease-in-out infinite;
+  }
+  .sway {
+    transform-origin: 50% 30%;
+    animation: sway 5s ease-in-out infinite;
+  }
+  .heart-bob {
+    animation: heart-bob 1.6s ease-in-out infinite;
+  }
+  .heart-rise {
+    opacity: 0;
+    animation: heart-rise var(--dur, 4s) var(--delay, 0s) ease-out infinite;
+  }
+  .wiggle-hover:hover {
+    animation: wiggle 0.5s ease-in-out;
+  }
+}
+
+/* ───────────── Keyframes ───────────── */
+
+@keyframes cat-blink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  95.5% { transform: scaleY(0.1); }
+}
+@keyframes cat-blink-quick {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+@keyframes cat-tail-sway {
+  0%, 100% { transform: rotate(-9deg); }
+  50% { transform: rotate(11deg); }
+}
+@keyframes cat-tail-sleep {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  80% { transform: rotate(-4deg); }
+  90% { transform: rotate(2deg); }
+}
+@keyframes cat-ear-twitch {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  91% { transform: rotate(12deg); }
+  94% { transform: rotate(-5deg); }
+}
+@keyframes cat-ear-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  35% { transform: rotate(-14deg); }
+  70% { transform: rotate(8deg); }
+}
+@keyframes cat-head-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  40% { transform: rotate(-7deg); }
+  70% { transform: rotate(4deg); }
+}
+@keyframes cat-wave {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  9% { transform: rotate(-28deg); }
+  18% { transform: rotate(8deg); }
+  27% { transform: rotate(-28deg); }
+  36% { transform: rotate(8deg); }
+}
+@keyframes cat-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.012, 1.04); }
+}
+@keyframes ribbon-flutter {
+  from { transform: rotate(-6deg); }
+  to { transform: rotate(7deg); }
+}
+@keyframes cat-leg-a {
+  0%, 100% { transform: rotate(var(--swing, 32deg)); }
+  50% { transform: rotate(calc(var(--swing, 32deg) * -1)); }
+}
+@keyframes cat-leg-b {
+  0%, 100% { transform: rotate(calc(var(--swing, 32deg) * -1)); }
+  50% { transform: rotate(var(--swing, 32deg)); }
+}
+@keyframes cat-bounce {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-5px) rotate(-2deg); }
+}
+@keyframes cat-peek {
+  0%, 14% { transform: translateY(102%); }
+  22%, 64% { transform: translateY(8%); }
+  44% { transform: translateY(14%); }
+  72%, 100% { transform: translateY(102%); }
+}
+@keyframes chase-move {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes chase-flip {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+  100% { transform: scaleX(1); }
+}
+@keyframes stroll {
+  0% { transform: translateX(0); }
+  62%, 100% { transform: translateX(calc(100% + 140px)); }
+}
+@keyframes zzz {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.6); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translate(16px, -30px) scale(1.1); }
+}
+@keyframes float-soft {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)); }
+  50% { transform: translate3d(0, -14px, 0) rotate(calc(var(--rot, 0deg) + 6deg)); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.35; transform: scale(0.75) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.1) rotate(20deg); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes heart-bob {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-6px) rotate(8deg); }
+}
+@keyframes heart-rise {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  15% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx, 8px), -80px) scale(1); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+/* ───────────── Performance & accessibility ───────────── */
+
+/* Sections that are scrolled far out of view pause their decorative loops. */
+[data-offscreen="true"] *,
+[data-offscreen="true"] *::before,
+[data-offscreen="true"] *::after {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

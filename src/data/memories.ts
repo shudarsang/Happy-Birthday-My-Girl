@@ -22,8 +22,8 @@ export const memories: Memory[] = [
     date: "",
     caption: "Where our little story began — the very first page of my favorite book.",
     photo: {
-      src: photo("WhatsApp Image 2026-10-28 at 11.39.53 PM (2).jpeg"),
-      alt: "Us in front of a painted wall with flowers, you in a red top and me in a plaid shirt",
+      src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM (2).jpeg"),
+      alt: "The two of us smiling cheek to cheek in a close selfie, trees behind us",
     },
   },
   {
@@ -31,8 +31,8 @@ export const memories: Memory[] = [
     date: "",
     caption: "Every day with you is a good one, but this one holds a special place in my heart.",
     photo: {
-      src: photo("WhatsApp Image 2026-10-28 at 11.39.52 PM.jpeg"),
-      alt: "Selfie of us under tall green trees on a bright day",
+      src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM.jpeg"),
+      alt: "Me looking at you while you smile, outdoors in the shade of the trees",
     },
   },
   {
@@ -40,8 +40,9 @@ export const memories: Memory[] = [
     date: "",
     caption: "Your laugh, your smile, the way you look at me — the tiny things mean everything.",
     photo: {
-      src: photo("WhatsApp Image 2026-10-28 at 11.23.03 PM.jpeg"),
-      alt: "You making a playful kissy face while I look at you, outdoors",
+      // The picture sits in the middle of this image; the centred crop hides the bars.
+      src: photo("WhatsApp Image 2026-10-28 at 11.23.05 PM (1).jpeg"),
+      alt: "Us sitting close together, my head leaning towards yours",
     },
   },
   {
@@ -49,8 +50,9 @@ export const memories: Memory[] = [
     date: "",
     caption: "Every moment with you is a memory I want to keep forever. ♡",
     photo: {
-      src: photo("WhatsApp Image 2026-10-28 at 11.39.54 PM (1).jpeg"),
-      alt: "Us smiling together in a selfie indoors, you in a floral top",
+      src: photo("WhatsApp Image 2026-10-28 at 11.39.55 PM.jpeg"),
+      alt: "Us kissing, photographed from inside a little hole in the sand with the sky behind",
+      focus: "50% 38%",
     },
   },
 ];

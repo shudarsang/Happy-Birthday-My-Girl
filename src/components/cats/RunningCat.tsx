@@ -86,7 +86,7 @@ export function RunningCatTrack({
     // Calm version: the lead cat simply sits at the edge of the section.
     return (
       <div ref={ref} aria-hidden="true" className={cn("pointer-events-none absolute inset-x-0 z-20 h-28", className)}>
-        <div className="absolute bottom-0 right-[6%] w-14 sm:w-16">
+        <div className="absolute bottom-0 left-[6%] w-14 sm:w-16">
           <CatFigure pose="sit" variant={lead.variant} accessory={lead.accessory} />
         </div>
       </div>

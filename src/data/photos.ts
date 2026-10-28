@@ -25,15 +25,9 @@ export const photo = (fileName: string) => `/photos/${fileName}`;
 
 export const photos: Photo[] = [
   {
-    src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM (2).jpeg"),
-    alt: "The two of us smiling cheek to cheek in a close selfie, trees behind us",
-    caption: "Matching smiles ♡",
-  },
-  {
-    src: photo("WhatsApp Image 2026-10-28 at 11.39.55 PM.jpeg"),
-    alt: "Us kissing, photographed from inside a little hole in the sand with the sky behind",
-    caption: "Sweetest kiss ♡",
-    focus: "50% 40%",
+    src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM (3).jpeg"),
+    alt: "A close selfie of us smiling, me in a maroon T-shirt",
+    caption: "You & me ♡",
   },
   {
     src: photo("WhatsApp Image 2026-10-28 at 11.39.53 PM (4).jpeg"),
@@ -42,10 +36,20 @@ export const photos: Photo[] = [
     focus: "50% 25%",
   },
   {
+    src: photo("WhatsApp Image 2026-10-28 at 11.23.03 PM.jpeg"),
+    alt: "You making a playful kissy face while I look at you, outdoors",
+    caption: "Kissy face ♡",
+  },
+  {
     src: photo("WhatsApp Image 2026-10-28 at 11.30.11 PM.jpeg"),
     alt: "You leaning over me in a cozy selfie, both of us smiling softly",
     caption: "Cuddle mode",
     focus: "50% 35%",
+  },
+  {
+    src: photo("WhatsApp Image 2026-10-28 at 11.39.52 PM.jpeg"),
+    alt: "Selfie of us under tall green trees on a bright day",
+    caption: "Under the trees",
   },
   {
     src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM (1).jpeg"),
@@ -53,20 +57,15 @@ export const photos: Photo[] = [
     caption: "Selfie with my love",
   },
   {
-    src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM (3).jpeg"),
-    alt: "Another close selfie of us smiling, me in a maroon T-shirt",
-    caption: "You & me ♡",
-  },
-  {
-    src: photo("WhatsApp Image 2026-10-28 at 11.23.04 PM.jpeg"),
-    alt: "Me looking at you while you smile, outdoors in the shade of the trees",
-    caption: "That look ♡",
-  },
-  {
     src: photo("WhatsApp Image 2026-10-28 at 11.23.05 PM (2).jpeg"),
     alt: "You standing in a green field wearing a leopard-print scarf, smiling",
     caption: "My beautiful girl",
     focus: "50% 30%",
+  },
+  {
+    src: photo("WhatsApp Image 2026-10-28 at 11.39.53 PM (2).jpeg"),
+    alt: "Us in front of a painted wall with flowers, you in a red top and me in a plaid shirt",
+    caption: "Flower wall ♡",
   },
   {
     src: photo("WhatsApp Image 2026-10-28 at 11.39.53 PM (3).jpeg"),
@@ -85,6 +84,11 @@ export const photos: Photo[] = [
     alt: "Us in a selfie with sparkly flower-crown filters",
     caption: "Flower crowns ♡",
     focus: "50% 35%",
+  },
+  {
+    src: photo("WhatsApp Image 2026-10-28 at 11.39.54 PM (1).jpeg"),
+    alt: "Us smiling together in a selfie indoors, you in a floral top",
+    caption: "Smiles all day",
   },
   {
     src: photo("WhatsApp Image 2026-10-28 at 11.39.54 PM.jpeg"),
@@ -108,11 +112,5 @@ export const photos: Photo[] = [
     alt: "A mirror selfie of us, me holding a red phone and standing behind you",
     caption: "Mirror, mirror ♡",
     focus: "50% 40%",
-  },
-  {
-    src: photo("WhatsApp Image 2026-10-28 at 11.23.05 PM (1).jpeg"),
-    alt: "Us sitting close together, my head leaning towards yours",
-    caption: "Side by side",
-    focus: "50% 45%",
   },
 ];

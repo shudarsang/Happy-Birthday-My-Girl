@@ -95,7 +95,7 @@ export function Memories() {
       id="memories"
       data-pause-offscreen
       aria-labelledby="memories-title"
-      className="relative overflow-hidden bg-gradient-to-b from-cream via-[#FFF8FA] to-shell pb-32 pt-28"
+      className="relative overflow-hidden bg-gradient-to-b from-cream via-[#FFF8FA] to-shell pb-24 pt-20 sm:pb-32 sm:pt-28"
     >
       <FloatingHearts items={floats} />
 
@@ -108,7 +108,8 @@ export function Memories() {
         className="top-0"
       />
 
-      <EdgePeekCat variant="white" className="top-[28%]" />
+      {/* Only on wider screens — on phones it would sit on the timeline line */}
+      <EdgePeekCat variant="white" className="top-[28%] hidden md:block" />
 
       <SectionHeading
         id="memories-title"

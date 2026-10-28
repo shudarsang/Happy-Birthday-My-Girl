@@ -125,7 +125,7 @@ export function Gallery() {
         }
       />
 
-      <ul className="relative mx-auto flex max-w-7xl flex-wrap justify-center gap-x-5 gap-y-12 px-4 sm:gap-x-8 sm:px-6">
+      <ul className="relative mx-auto flex max-w-7xl flex-wrap justify-center gap-x-5 gap-y-9 px-4 sm:gap-x-8 sm:gap-y-12 sm:px-6">
         <AnimatePresence initial={false}>
           {visible.map((photo, i) => (
             <Polaroid key={photo.src} photo={photo} index={i} onOpen={() => setOpenIndex(i)} />

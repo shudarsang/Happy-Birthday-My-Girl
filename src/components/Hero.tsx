@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { CalendarHeart, Heart } from "lucide-react";
-import { BirthdayCountdown } from "@/components/BirthdayCountdown";
 import { Cat } from "@/components/cats/Cat";
 import { HeartChase, PeekingCat, SleepyCat } from "@/components/cats/CatDecorations";
 import { RunningCatTrack } from "@/components/cats/RunningCat";
@@ -20,9 +19,9 @@ const floats: FloatItem[] = [
   { kind: "outline", top: "33%", left: "6.5%", size: 22, rot: 8, dur: 7, delay: 1 },
   { kind: "heart", top: "60%", left: "1.5%", size: 18, rot: 10, dur: 5.5, delay: 0.5 },
   { kind: "outline", top: "20%", left: "33%", size: 26, rot: -10, dur: 6.2, delay: 1.2, hideOnMobile: true },
-  { kind: "heart", top: "14%", left: "66%", size: 40, rot: 12, dur: 7.5, color: "#FFC2DA", hideOnMobile: true },
-  { kind: "heart", top: "26%", left: "76%", size: 32, rot: -8, dur: 6, delay: 0.8, hideOnMobile: true },
-  { kind: "heart", top: "72%", left: "70%", size: 36, rot: -6, dur: 6.8, color: "#FFC2DA", hideOnMobile: true },
+  { kind: "heart", top: "40%", left: "95%", size: 34, rot: 12, dur: 7.5, color: "#FFC2DA", hideOnMobile: true },
+  { kind: "heart", top: "64%", left: "88%", size: 28, rot: -8, dur: 6, delay: 0.8, hideOnMobile: true },
+  { kind: "heart", top: "80%", left: "52%", size: 30, rot: -6, dur: 6.8, color: "#FFC2DA", hideOnMobile: true },
   { kind: "heart", top: "8%", left: "90%", size: 20, rot: 12, dur: 5.8, delay: 0.4 },
   { kind: "heart", top: "48%", left: "93%", size: 18, rot: -12, dur: 6.4, delay: 1.6, color: "#FF9EC4" },
   { kind: "sparkle", top: "15%", left: "52%", size: 16, dur: 2.6 },
@@ -44,12 +43,12 @@ export function Hero() {
       className="bg-hero relative overflow-hidden pt-24 sm:pt-28 lg:pt-24"
     >
       <FloatingHearts items={floats} />
-      <BigBow className="sway pointer-events-none absolute -right-3 top-14 hidden w-40 lg:block xl:w-48" />
+      <BigBow className="sway pointer-events-none absolute -right-3 top-14 hidden w-36 lg:block xl:w-40" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-x-4 gap-y-16 px-4 pb-40 sm:px-6 lg:min-h-[620px] lg:grid-cols-[1fr_1.12fr_0.8fr] lg:pb-32">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-x-10 gap-y-10 px-4 pb-32 sm:px-6 sm:pb-40 lg:min-h-[620px] lg:grid-cols-[1.05fr_1fr] lg:pb-32">
         {/* ── Illustration ── */}
         <motion.div
-          className="relative order-3 mx-auto w-full max-w-[520px] lg:order-1 lg:self-end"
+          className="relative order-2 mx-auto w-full max-w-[400px] sm:max-w-[520px] lg:order-1 lg:max-w-[560px] lg:self-end"
           initial={{ opacity: 0, x: -30 }}
           animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.9, ease: ease.soft, delay: 0.2 }}
@@ -60,7 +59,7 @@ export function Hero() {
             alt={hero.illustration.alt}
             width={hero.illustration.width}
             height={hero.illustration.height}
-            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 520px, 92vw"
+            sizes="(min-width: 1024px) 560px, (min-width: 640px) 520px, 92vw"
             className="illustration-mask relative h-auto w-full select-none"
           />
           <CloudBank color="#FFF5F8" className="absolute -bottom-3 -left-[6%] h-12 w-[112%] opacity-95 sm:h-14" />
@@ -117,15 +116,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ── Countdown ── */}
-        <motion.div
-          className="relative order-2 pt-8 lg:order-3 lg:pt-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: ease.soft, delay: 0.55 }}
-        >
-          <BirthdayCountdown />
-        </motion.div>
       </div>
 
       {/* Kitten chasing a floating heart (roomy screens only) */}

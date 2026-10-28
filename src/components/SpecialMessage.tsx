@@ -42,7 +42,7 @@ export function SpecialMessage() {
       id="message"
       data-pause-offscreen
       aria-labelledby="message-title"
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFEFF5] via-blush to-[#FFE6F0] pb-28 pt-28 sm:pb-32"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFEFF5] via-blush to-[#FFE6F0] pb-24 pt-20 sm:pb-32 sm:pt-28"
     >
       <FloatingHearts items={floats} />
       <RunningCatTrack runners={[{ variant: "cream", accessory: "heart" }]} hearts className="top-0" />
@@ -72,7 +72,7 @@ export function SpecialMessage() {
           <span aria-hidden="true" className="washi absolute -top-3 right-10 h-7 w-20 rotate-[8deg] rounded-sm shadow-sm" />
           <HeartOutline className="absolute bottom-5 right-6 size-9 rotate-12 text-petal-deep" />
 
-          <div className="font-letter text-[1.6rem] leading-[2.45rem] text-plum sm:text-[1.8rem]">
+          <div className="font-letter text-[1.45rem] leading-[2.45rem] text-plum sm:text-[1.8rem]">
             <p className="font-semibold">{message.greeting}</p>
             {message.paragraphs.map((p, i) => (
               <p key={i} className="mt-[2.45rem]">

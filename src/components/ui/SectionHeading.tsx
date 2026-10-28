@@ -38,7 +38,7 @@ export function SectionHeading({ id, title, subtitle, hearts = false, side, clas
         {side}
       </motion.div>
       {subtitle && (
-        <motion.p variants={fadeUp} className="mt-3 font-hand text-base text-plum-soft sm:text-lg">
+        <motion.p variants={fadeUp} className="mt-3 text-balance font-hand text-base text-plum-soft sm:text-lg">
           <RichText text={subtitle} heartClassName="text-berry" />
         </motion.p>
       )}

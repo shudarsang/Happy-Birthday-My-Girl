@@ -18,11 +18,7 @@ export const siteConfig = {
   },
 
   birthday: {
-    /**
-     * 29 October 2026 at 00:00 in Asia/Kolkata (IST is always UTC+05:30,
-     * there is no daylight saving), written as an ISO timestamp so the
-     * countdown is correct for visitors in any timezone.
-     */
+    /** 29 October 2026 (Asia/Kolkata) — shown in the date pill under the heading. */
     iso: "2026-10-29T00:00:00+05:30",
     timeZone: "Asia/Kolkata",
     display: "29 / 10 / 2026",
@@ -40,12 +36,6 @@ export const siteConfig = {
       width: 596,
       height: 444,
     },
-  },
-
-  countdown: {
-    heading: "Your Special Day Is In...",
-    todayHeading: "Today Is Your Special Day! ♡",
-    afterHeading: "Happy Birthday, My Love! ♡",
   },
 
   gallery: {

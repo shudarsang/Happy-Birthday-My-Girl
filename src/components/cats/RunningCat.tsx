@@ -85,7 +85,7 @@ export function RunningCatTrack({
   if (reduced) {
     // Calm version: the lead cat simply sits at the edge of the section.
     return (
-      <div ref={ref} aria-hidden="true" className={cn("pointer-events-none absolute inset-x-0 z-20 h-28", className)}>
+      <div ref={ref} aria-hidden="true" className={cn("pointer-events-none absolute inset-x-0 z-20 h-20 sm:h-28", className)}>
         <div className="absolute bottom-0 left-[6%] w-14 sm:w-16">
           <CatFigure pose="sit" variant={lead.variant} accessory={lead.accessory} />
         </div>
@@ -99,7 +99,7 @@ export function RunningCatTrack({
       aria-hidden="true"
       data-moving="false"
       data-dir="forward"
-      className={cn("pointer-events-none absolute inset-x-0 z-20 h-28 overflow-x-clip", className)}
+      className={cn("pointer-events-none absolute inset-x-0 z-20 h-20 overflow-x-clip sm:h-28", className)}
     >
       {pawPrints && PAW_SPOTS.map((spot, i) => <TrackPaw key={spot} spot={spot} index={i} {...leadShared} />)}
       {hearts && HEART_SPOTS.map((spot) => <TrackHeart key={spot} spot={spot} {...leadShared} />)}

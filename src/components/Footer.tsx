@@ -21,7 +21,7 @@ export function Footer() {
   return (
     <footer
       data-pause-offscreen
-      className="relative overflow-hidden bg-gradient-to-b from-blush via-[#FFD3E4] to-petal/90 pb-10 pt-28 text-center"
+      className="relative overflow-hidden bg-gradient-to-b from-blush via-[#FFD3E4] to-petal/90 pb-10 pt-20 text-center sm:pt-28"
     >
       <RunningCatTrack runners={[{ variant: "tuxedo" }]} chaseHeart className="top-0" />
 

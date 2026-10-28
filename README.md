@@ -21,7 +21,7 @@ Everything personal is in `src/data/`:
 
 | What | Where |
 | --- | --- |
-| Birthday date & time (countdown target), all headings, the letter, the surprise, footer lines, what the cats say | `src/data/siteConfig.ts` |
+| Birthday date, all headings, the letter, the surprise, footer lines, what the cats say | `src/data/siteConfig.ts` |
 | Gallery photos, captions, alt text | `src/data/photos.ts` |
 | "Our Little World" memory cards (photo, title, date, caption) | `src/data/memories.ts` |
 | Hero illustration | `public/images/couple.png` (path set in `siteConfig.ts`) |
@@ -46,12 +46,6 @@ lives in `src/components/intro/`.
 The first `gallery.initialCount` photos show straight away; the rest appear
 with "View More Photos". The lightbox always shows the whole photo.
 
-### Countdown
-
-`birthday.iso` in `siteConfig.ts` is `2026-10-29T00:00:00+05:30` (midnight in
-Asia/Kolkata). After that moment the card switches to "Today Is Your Special
-Day! ♡" for 24 hours, then to `countdown.afterHeading`.
-
 ## Where things live
 
 ```
@@ -63,9 +57,10 @@ src/
                   sleep/stretch, stroll, slide-out, jump, climb, timeline, edge-peek)
     decorations/  doodles, floating hearts, cloud dividers
     ui/           section heading, heart bursts, ♡ text helper
-    Navbar, Hero, BirthdayCountdown, Gallery, PhotoLightbox, Memories, SpecialMessage, Footer
+    intro/        the full-screen opening greeting (+ cake)
+    Navbar, Hero, Gallery, PhotoLightbox, Memories, SpecialMessage, Footer
   data/           ← edit these
-  hooks/          countdown, active section, reduced motion, scroll progress
+  hooks/          active section, reduced motion, scroll progress
   lib/            shared animation settings
 ```
 

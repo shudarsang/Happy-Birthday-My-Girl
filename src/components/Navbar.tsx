@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Gift, Heart, House, Images, Menu, X, type LucideIcon } from "lucide-react";
-import { CatFigure } from "@/components/cats/CatFigure";
 import { InlineHeart, LogoHeart } from "@/components/decorations/Doodles";
 import { useIntroDone } from "@/components/intro/IntroProvider";
 import { Burst } from "@/components/ui/Burst";
@@ -14,20 +13,6 @@ import { cn } from "@/lib/utils";
 
 const icons: Record<NavId, LucideIcon> = { home: House, gallery: Images, memories: Heart, message: Gift };
 const sectionIds = navItems.map((item) => item.id);
-
-/** A tiny white kitten that pops up from the bottom edge of the nav pill. */
-function NavCat() {
-  return (
-    <span aria-hidden="true" className="relative block h-[31px] w-[44px] self-end overflow-hidden">
-      <span
-        className="peek-loop absolute inset-x-0 top-0 block"
-        style={{ "--peek-dur": "8s", "--peek-delay": "1.2s" } as CSSProperties}
-      >
-        <CatFigure pose="peek" variant="white" accessory="bow" />
-      </span>
-    </span>
-  );
-}
 
 export function Navbar() {
   const active = useActiveSection(sectionIds);
@@ -75,7 +60,6 @@ export function Navbar() {
           <span className="whitespace-nowrap font-hand text-xl font-bold text-berry">
             {siteConfig.brand} <InlineHeart />
           </span>
-          <NavCat />
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">

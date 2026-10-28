@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Gift, Heart, House, Images, Menu, X, type LucideIcon } from "lucide-react";
 import { CatFigure } from "@/components/cats/CatFigure";
 import { InlineHeart, LogoHeart } from "@/components/decorations/Doodles";
+import { useIntroDone } from "@/components/intro/IntroProvider";
 import { Burst } from "@/components/ui/Burst";
 import { navItems, siteConfig, type NavId } from "@/data/siteConfig";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -30,6 +31,7 @@ function NavCat() {
 
 export function Navbar() {
   const active = useActiveSection(sectionIds);
+  const introDone = useIntroDone();
   const [open, setOpen] = useState(false);
   const [bursts, setBursts] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
@@ -59,7 +61,7 @@ export function Navbar() {
       <motion.nav
         aria-label="Main"
         initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={introDone ? { y: 0, opacity: 1 } : { y: -24, opacity: 0 }}
         transition={{ duration: 0.7, ease: ease.soft }}
         className="relative mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 rounded-full border border-white/80 bg-white/70 pl-3 pr-1.5 shadow-soft backdrop-blur-md sm:h-[60px] sm:pl-5"
       >

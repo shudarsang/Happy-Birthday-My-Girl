@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Cat } from "@/components/cats/Cat";
 import { EmphasisLines, HeartIcon, HeartOutline, Squiggle } from "@/components/decorations/Doodles";
+import { useIntroDone } from "@/components/intro/IntroProvider";
 import { Burst } from "@/components/ui/Burst";
 import { RichText } from "@/components/ui/RichText";
 import { siteConfig } from "@/data/siteConfig";
@@ -42,18 +43,20 @@ function Unit({ value, label, ready }: { value: number; label: string; ready: bo
 
 export function BirthdayCountdown({ className }: { className?: string }) {
   const c = useBirthdayCountdown(siteConfig.birthday.iso);
+  const introDone = useIntroDone();
   const [celebrations, setCelebrations] = useState<number[]>([]);
   const celebrated = useRef(false);
 
-  // A little heart shower the moment the birthday arrives (or on load during the day).
+  // A little heart shower the moment the birthday arrives (or on load during the
+  // day, once the opening greeting has been dismissed).
   useEffect(() => {
-    if (!c.ready || c.status !== "today" || celebrated.current) return;
+    if (!introDone || !c.ready || c.status !== "today" || celebrated.current) return;
     celebrated.current = true;
     const ids = [1, 2, 3].map((n) => Date.now() + n);
     setCelebrations(ids);
-    const t = window.setTimeout(() => setCelebrations([]), 1400);
+    const t = window.setTimeout(() => setCelebrations([]), 2600);
     return () => window.clearTimeout(t);
-  }, [c.ready, c.status]);
+  }, [introDone, c.ready, c.status]);
 
   const units = [
     { label: "Days", value: c.days },

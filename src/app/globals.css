@@ -241,6 +241,75 @@
   }
 }
 
+/* ───────────── Opening greeting ───────────── */
+
+@layer components {
+  .bg-intro {
+    background:
+      radial-gradient(70% 55% at 50% 40%, #fff 0%, rgb(255 255 255 / 0) 70%),
+      radial-gradient(50% 40% at 85% 15%, rgb(233 221 251 / 0.8), transparent 70%),
+      radial-gradient(45% 40% at 10% 85%, rgb(255 182 213 / 0.7), transparent 70%),
+      linear-gradient(180deg, #ffe3ee 0%, #ffd6e6 60%, #ffc2da 100%);
+  }
+  .rise-up {
+    animation: rise-up var(--dur, 9s) var(--delay, 0s) linear infinite;
+  }
+  .letter-wave {
+    animation: letter-wave 2.4s ease-in-out infinite;
+  }
+  .heartbeat {
+    animation: heartbeat 1.3s ease-in-out infinite;
+  }
+  .glow-pulse {
+    animation: glow-pulse 3.2s ease-in-out infinite;
+  }
+  .soft-pulse {
+    animation: soft-pulse 2s ease-in-out infinite;
+  }
+  .flame {
+    animation: flame-flicker 0.8s ease-in-out infinite alternate;
+  }
+  .flame-glow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: flame-glow 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes rise-up {
+  0% { transform: translate(0, 0) rotate(-8deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translate(var(--sway, 16px), -55vh) rotate(8deg); }
+  90% { opacity: 1; }
+  100% { transform: translate(0, -115vh) rotate(-8deg); opacity: 0; }
+}
+@keyframes letter-wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.07em); }
+}
+@keyframes heartbeat {
+  0%, 40%, 100% { transform: scale(1); }
+  15% { transform: scale(1.22); }
+  28% { transform: scale(0.95); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(233 79 135 / 0.45), var(--shadow-card); }
+  60% { box-shadow: 0 0 0 14px rgb(233 79 135 / 0), var(--shadow-card); }
+}
+@keyframes flame-flicker {
+  0% { transform: scale(1, 1) rotate(-4deg); }
+  50% { transform: scale(0.9, 1.1) rotate(3deg); }
+  100% { transform: scale(1.05, 0.94) rotate(-1deg); }
+}
+@keyframes flame-glow {
+  0%, 100% { transform: scale(0.85); opacity: 0.3; }
+  50% { transform: scale(1.15); opacity: 0.55; }
+}
+
 /* ───────────── Keyframes ───────────── */
 
 @keyframes cat-blink {

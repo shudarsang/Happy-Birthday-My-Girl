@@ -7,6 +7,16 @@
 export const siteConfig = {
   brand: "For You",
 
+  /** The full-screen greeting that plays when the site opens. */
+  intro: {
+    line1: "Happy Birthday",
+    line2: "Dee Puchaa",
+    button: "Open your surprise ♡",
+    hint: "or tap anywhere",
+    /** Seconds before it continues on its own (0 = wait for a tap). */
+    autoContinueAfter: 12,
+  },
+
   birthday: {
     /**
      * 29 October 2026 at 00:00 in Asia/Kolkata (IST is always UTC+05:30,

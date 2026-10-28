@@ -10,6 +10,7 @@ import { RunningCatTrack } from "@/components/cats/RunningCat";
 import { CloudDivider } from "@/components/decorations/CloudDivider";
 import { BigBow, Cloud, CloudBank, EmphasisLines, HeartOutline, Squiggle } from "@/components/decorations/Doodles";
 import { FloatingHearts, type FloatItem } from "@/components/decorations/FloatingHearts";
+import { useIntroDone } from "@/components/intro/IntroProvider";
 import { RichText } from "@/components/ui/RichText";
 import { siteConfig } from "@/data/siteConfig";
 import { ease, fadeUp, stagger } from "@/lib/animation";
@@ -32,6 +33,8 @@ const floats: FloatItem[] = [
 
 export function Hero() {
   const { hero, birthday } = siteConfig;
+  // Entrance animations wait until the opening greeting is dismissed.
+  const ready = useIntroDone();
 
   return (
     <section
@@ -48,7 +51,7 @@ export function Hero() {
         <motion.div
           className="relative order-3 mx-auto w-full max-w-[520px] lg:order-1 lg:self-end"
           initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.9, ease: ease.soft, delay: 0.2 }}
         >
           <Cloud color="#FFD3E3" className="absolute -bottom-5 -left-[8%] w-[55%] opacity-80" />
@@ -57,7 +60,6 @@ export function Hero() {
             alt={hero.illustration.alt}
             width={hero.illustration.width}
             height={hero.illustration.height}
-            preload
             sizes="(min-width: 1024px) 34vw, (min-width: 640px) 520px, 92vw"
             className="illustration-mask relative h-auto w-full select-none"
           />
@@ -77,7 +79,7 @@ export function Hero() {
           className="relative order-1 text-center lg:order-2"
           variants={stagger(0.12, 0.15)}
           initial="hidden"
-          animate="show"
+          animate={ready ? "show" : "hidden"}
         >
           <motion.p variants={fadeUp} className="font-hand text-lg text-plum sm:text-xl lg:text-[1.4rem]">
             <RichText text={hero.intro} heartClassName="text-berry" />
@@ -119,7 +121,7 @@ export function Hero() {
         <motion.div
           className="relative order-2 pt-8 lg:order-3 lg:pt-6"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: ease.soft, delay: 0.55 }}
         >
           <BirthdayCountdown />

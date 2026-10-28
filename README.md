@@ -28,6 +28,13 @@ Everything personal is in `src/data/`:
 
 Any `♡` you type in these files is drawn as a little pink heart.
 
+### Opening greeting
+
+When the site opens, a full-screen "Happy Birthday / Dee Puchaa" animation plays
+(letters, confetti, a cake with candles, two kittens). Change its words, button
+text or the auto-continue time under `intro` in `siteConfig.ts`. The animation
+lives in `src/components/intro/`.
+
 ### Photos
 
 1. Put pictures in `public/photos/`.
